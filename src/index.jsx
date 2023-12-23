@@ -7,7 +7,7 @@ import { useCameraStartAnimation } from './utils/CameraUtils.jsx';
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
-
+const hello = "this is a new variable"
 const Scene = () => {
     useCameraStartAnimation({ duration: 5, toPosition: [0, 0, -200] });
     return (
