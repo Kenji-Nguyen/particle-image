@@ -5,8 +5,8 @@ import referenceImg from './asset/image.jpg'
 import { useControls } from 'leva'
 import { useScroll } from '@react-three/drei';
 
-import fragmentShader from './fragmentShader';
-import vertexShader from './vertexShader';
+import fragmentShader from './shader/fragmentShader.glsl?raw';
+import vertexShader from './shader/vertexShader.glsl?raw';
 
 
 export default function Particles() {
@@ -17,6 +17,7 @@ export default function Particles() {
     const multiplier = 20;
     const nbColumns = 8 * multiplier;
     const nbLines = 8 * multiplier;
+    
 
     ////// CONTROLS
     const { attractorStrength, pointsize, frequency, radius, speed, offset, blurBG, velocity} = useControls({
@@ -29,8 +30,6 @@ export default function Particles() {
         velocity: { x: 1, y: 1, z: 1},
     });
 
-
-    // Setup Particle Positions
     let positions = useMemo(() => {
         let positions = [];
 

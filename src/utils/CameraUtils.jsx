@@ -3,7 +3,6 @@ import { useScroll } from '@react-three/drei';
 import { useThree, useFrame} from '@react-three/fiber';
 import gsap from 'gsap';
 
-
 // Function for starting camera animation
 export const useCameraStartAnimation = ({ duration = 5, toPosition = [20, 10, 30] }) => {
   const { camera } = useThree();
