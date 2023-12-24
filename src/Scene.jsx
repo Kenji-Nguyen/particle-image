@@ -9,11 +9,11 @@ import { useCameraStartAnimation } from './utils/CameraUtils.jsx';
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 const hello = "this is a new variable"
 const Scene = () => {
-    useCameraStartAnimation({ duration: 5, toPosition: [0, 0, -200] });
+    useCameraStartAnimation({ duration: 5, toPosition: [0, 0, 60] });
     return (
         <>
             <ScrollControls pages={3} damping={0.1}>
-                    <Particles />
+                <Particles />
             </ScrollControls>
             <OrbitControls />
         </>

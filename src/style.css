@@ -1,71 +1,304 @@
 :root {
     --background-blur: 0px;
+
+    /* Default font sizes */
+    --fs-heading-1: 2.25rem;
+    --fs-heading-2: 1.5rem;
+    --fs-body: 1.125rem;
+
+    --break-mobile: 37.5em;
+    --break-tablet: 67.5em;
+
+    /* Line heights */
+    --line-height-heading: 140%;
+    --line-height-body: 140%;
+
+    --ff-primary: 'GT Flexa Trial', sans-serif;
+    --clr-white: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'GT Flexa Trial';
+    src: url('asset/GT-Flexa-Bold-Trial.otf') format('opentype');
+    font-weight: 700;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'GT Flexa Trial';
+    src: url('asset/GT-Flexa-Light-Trial.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: light;
+    color: var(--clr-white);
+    max-width: 60ch;
+    margin: 0 auto;
+    /* This will center the content horizontally */
+    display: flex;
+    /* These three lines will center the content vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    padding: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
 }
 
 html,
-body,
-#root
-{
+body {
+    height: 42ch;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+p {
+    margin: 0
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* GENERAL STYLING */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+#root {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    isolation: isolate;
+    z-index: -1;
 }
 
-#text {
-    width: 60%;
-    transform-origin: center;
+#root::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events : none;
-    opacity: 0%;
-    animation: blend-in 1000ms 2000ms cubic-bezier(0.455, 0.03, 0.315, 0.955) forwards;
-}
-
-@keyframes blend-in {
-    0% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 100%;
-    }
-}
-
-#background{
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    filter: blur(100px);
-    -webkit-filter: blur(100px);
-    transform: scale(1.7);
-    background: conic-gradient(from 45deg at center,  #86342A, #0F021A,  #260440);
+    background: conic-gradient(from -20deg at center, #86342A, #0F021A, #260440);
+    filter: blur(200);
+    -webkit-filter: blur(200px);
     background-size: 120% 150%;
+}
+
+#root::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, #0F021A, #260440);
+    background-size: 100% 100%;
     z-index: -1;
 }
 
-
-canvas {
-    width: 100vw;
-    height: 100vh;
-    filter: blur(var(--background-blur));
-    transform: scale(1, 1);
-    opacity: 0%;
-    animation: zoom-in-zoom-out 1500ms cubic-bezier(0.455, 0.03, 0.315, 0.955) forwards;
+/*  Main */
+main {
+    width: 100%;
+    height: 100%;
 }
 
-@keyframes zoom-in-zoom-out {
-    0% {
-      transform: scale(1, 1);
-      opacity: 0%;
+/* Navigation */
+.primary-header {
+    padding-top: 3.5em;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 4em;
+}
+
+@media (min-width: var(--break-mobile)) {
+
+    .primary-header {
+        padding-top: 3em;
     }
-    100% {
-      transform: scale(1, 1);
-      opacity: 100%;
+
+}
+
+
+/* Utility classes */
+
+.container {
+    --max-width: 640px;
+    --padding: 1rem;
+
+    width: min(var(--max-width), 100% - (var(--padding) * 2));
+    margin-inline: auto;
+}
+
+
+/* Base styles */
+.fs-heading-1,
+h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 140%;
+}
+
+.fs-heading-2,
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fs-body,
+p {
+    font-size: 1.125rem;
+    font-weight: light;
+    line-height: 140%;
+}
+
+/* Medium screens */
+@media (min-width: 37.5em) {
+
+    .fs-heading-1,
+    h1 {
+        font-size: 3.0rem;
+        font-weight: medium;
+        line-height: 150%;
     }
-  }
+
+    .fs-heading-2,
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    .fs-body,
+    p {
+        font-size: 1.25rem;
+        line-height: 150%;
+    }
+}
+
+/* Large screens */
+@media (min-width: 67.5em) {
+
+    .fs-heading-1,
+    h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        line-height: 130%;
+    }
+
+    .fs-heading-2,
+    h2 {
+        font-size: 3rem;
+    }
+
+    .fs-body,
+    p {
+        font-size: 1.5rem;
+        line-height: 160%;
+    }
+}
+
+
+.clr-white {
+    color: var(--clr-white);
+}
+
+/* temporary hard coded classes */
+
+body {
+    pointer-events: none;
+}
+
+.vertically-align {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.staging {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    margin-top: clamp(-25%, -5vw, -10%);
+}

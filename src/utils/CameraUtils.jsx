@@ -1,6 +1,6 @@
-import { useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import { useScroll } from '@react-three/drei';
-import { useThree, useFrame} from '@react-three/fiber';
+import { useThree, useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
 
 // Function for starting camera animation
@@ -14,7 +14,7 @@ export const useCameraStartAnimation = ({ duration = 5, toPosition = [20, 10, 30
       y: toPosition[1],
       z: toPosition[2],
       ease: "power1.inOut",
-      onUpdate: () => camera.lookAt(0, 0, 200)
+      onUpdate: () => camera.lookAt(0, 0, 0)
     });
   }, [camera, duration, toPosition]);
 };
