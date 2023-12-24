@@ -151,7 +151,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: conic-gradient(from -20deg at center, #86342A, #0F021A, #260440);
     filter: blur(200);
     -webkit-filter: blur(200px);
@@ -164,7 +164,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(60deg, #0F021A, #260440);
     background-size: 100% 100%;
     z-index: -1;
@@ -229,7 +229,7 @@ h2 {
 p {
     font-size: 1.125rem;
     font-weight: light;
-    line-height: 140%;
+    line-height: 150%;
 }
 
 /* Medium screens */
@@ -279,6 +279,14 @@ p {
 
 .clr-white {
     color: var(--clr-white);
+}
+
+.divider {
+    width: 50%;
+    height: 1px;
+    background-color: var(--clr-white);
+    opacity: 0.5;
+    margin: 0.5em 0 0.5em;
 }
 
 /* temporary hard coded classes */

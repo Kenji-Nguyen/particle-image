@@ -1,9 +1,11 @@
 import './style.css'
+import './canvas.css'
 import ReactDOM from 'react-dom/client'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { ScrollControls, Scroll, OrbitControls } from '@react-three/drei';
 import Particles from './Particles.jsx'
 import { useCameraStartAnimation } from './utils/CameraUtils.jsx';
+import { Leva } from 'leva';
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
@@ -13,9 +15,10 @@ const Scene = () => {
     return (
         <>
             <ScrollControls pages={3} damping={0.1}>
+                <Leva hidden></Leva>
                 <Particles />
-            </ScrollControls>
-            <OrbitControls />
+            </ScrollControls >
+            <OrbitControls maxDistance={100} />
         </>
     );
 };

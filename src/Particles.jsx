@@ -17,17 +17,17 @@ export default function Particles() {
     const multiplier = 20;
     const nbColumns = 8 * multiplier;
     const nbLines = 8 * multiplier;
-    
+
 
     ////// CONTROLS
-    const { attractorStrength, pointsize, frequency, radius, speed, offset, blurBG, velocity} = useControls({
-        attractorStrength: { value: 50, min: 0, max: 200.0, step: 1 },
-        pointsize: { value: 800.0, min: 0, max: 2000.0, step: 1 },
+    const { attractorStrength, pointsize, frequency, radius, speed, offset, blurBG, velocity } = useControls({
+        attractorStrength: { value: 35, min: 0, max: 200.0, step: 1 },
+        pointsize: { value: 500.0, min: 0, max: 2000.0, step: 1 },
         radius: { value: 100, min: 0.0, max: 200.0, step: 0.1 },
-        speed: { value: 1, min: 0.0, max: 5.0, step: 0.01 },
+        speed: { value: 1.5, min: 0.0, max: 5.0, step: 0.01 },
         offset: { value: 0.3, min: 0, max: 2.0, step: 0.01 },
         blurBG: { value: 0, min: 0.0, max: 100, step: 0.5 },
-        velocity: { x: 1, y: 1, z: 1},
+        velocity: { x: 1, y: 1, z: 1 },
     });
 
     let positions = useMemo(() => {
@@ -73,7 +73,7 @@ export default function Particles() {
             uRadius: { value: radius },
             uMouseX: { value: 0 },
             uMouseY: { value: 0 },
-            uVelocity: { value: velocity},
+            uVelocity: { value: velocity },
         }
     ])).current;
 
@@ -85,8 +85,8 @@ export default function Particles() {
 
     const currentPointer = useRef({ x: 0, y: 0 });
 
-    useFrame(({clock, camera, pointer }) => {
-        uniforms.uTime.value = (Math.sin(clock.getElapsedTime()*Math.pow(speed,2)*0.01) + 1) * offset + offset
+    useFrame(({ clock, camera, pointer }) => {
+        uniforms.uTime.value = (Math.sin(clock.getElapsedTime() * Math.pow(speed, 2) * 0.01) + 1) * offset + offset
         uniforms.uPointSize.value = pointsize;
         uniforms.uRadius.value = radius;
         uniforms.uVelocity.value.x = velocity.x; // Set the X component of velocity
@@ -126,9 +126,9 @@ export default function Particles() {
                 fragmentShader={fragmentShader}
                 vertexShader={vertexShader}
                 uniforms={uniforms}
-                depthTest= {true}
-                depthWrite= {false}
-                transparent= {true}
+                depthTest={true}
+                depthWrite={false}
+                transparent={true}
             />
         </points>
     );
