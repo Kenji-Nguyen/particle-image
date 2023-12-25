@@ -86,7 +86,7 @@ export default function Particles() {
     const currentPointer = useRef({ x: 0, y: 0 });
 
     useFrame(({ clock, camera, pointer }) => {
-        uniforms.uTime.value = (Math.sin(clock.getElapsedTime() * Math.pow(speed, 2) * 0.01) + 1) * offset + offset
+        uniforms.uTime.value = (Math.sin((clock.getElapsedTime() + 60) * Math.pow(speed, 2) * 0.01) + 1) * offset + offset
         uniforms.uPointSize.value = pointsize;
         uniforms.uRadius.value = radius;
         uniforms.uVelocity.value.x = velocity.x; // Set the X component of velocity

@@ -310,3 +310,89 @@ body {
     align-items: flex-start;
     margin-top: clamp(-25%, -5vw, -10%);
 }
+
+/* Staging Animation */
+.staging>* {
+    /* Initially hide all children */
+    opacity: 0;
+
+    animation-name: animate-in;
+    animation-timing-function: cubic-bezier(.35, .27, 0, 1.04);
+    animation-duration: 1.75s;
+    animation-delay: 0s;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: animate-in;
+    -webkit-animation-timing-function: cubic-bezier(.35, .27, 0, 1.04);
+    -webkit-animation-duration: 1.75s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+}
+
+.staging>*:nth-child(1) {
+    animation-name: logo-in;
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+.staging>*:nth-child(2) {
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+
+.staging>*:nth-child(3) {
+    -webkit-animation-delay: 1.7s;
+    animation-delay: 1.7s;
+}
+
+.staging>*:nth-child(4) {
+    -webkit-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+}
+
+.staging>*:nth-child(5) {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+/* Continue for as many children as you have */
+
+@-webkit-keyframes animate-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes animate-in {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logo-in {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

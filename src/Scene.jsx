@@ -11,14 +11,14 @@ import { Leva } from 'leva';
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 const hello = "this is a new variable"
 const Scene = () => {
-    useCameraStartAnimation({ duration: 5, toPosition: [0, 0, 60] });
+    useCameraStartAnimation({ duration: 5, toPosition: [0, 0, 110] });
     return (
         <>
             <ScrollControls pages={3} damping={0.1}>
                 <Leva hidden></Leva>
                 <Particles />
             </ScrollControls >
-            <OrbitControls maxDistance={100} />
+            <OrbitControls maxDistance={150} />
         </>
     );
 };
