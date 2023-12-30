@@ -138,8 +138,7 @@ html {
 #root {
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     isolation: isolate;
     z-index: -1;
@@ -172,7 +171,6 @@ html {
 
 /*  Main */
 main {
-    width: 100%;
     height: 100%;
 }
 
@@ -355,6 +353,11 @@ body {
     animation-delay: 2s;
 }
 
+.staging>*:nth-child(6) {
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+
 /* Continue for as many children as you have */
 
 @-webkit-keyframes animate-in {
@@ -410,4 +413,18 @@ body {
     100% {
         scale: 1 1;
     }
+}
+
+/* SVG */
+
+.svg-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 0.75em;
+    pointer-events: all;
+}
+
+.svg-image {
+    width: 2em;
 }
