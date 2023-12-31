@@ -10,11 +10,13 @@
     --break-tablet: 67.5em;
 
     /* Line heights */
-    --line-height-heading: 140%;
-    --line-height-body: 140%;
+    --line-height-heading: 120%;
+    --line-height-body: 120%;
 
     --ff-primary: 'GT Flexa Trial', sans-serif;
     --clr-white: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
@@ -186,7 +188,7 @@ main {
 }
 
 .nav-logo {
-    width: 4em;
+    width: 3.75em;
 }
 
 @media (min-width: var(--break-mobile)) {
@@ -202,7 +204,7 @@ main {
 
 .container {
     --max-width: 640px;
-    --padding: 1rem;
+    --padding: 1.5rem;
 
     width: min(var(--max-width), 100% - (var(--padding) * 2));
     margin-inline: auto;
@@ -214,20 +216,21 @@ main {
 h1 {
     font-size: 2.25rem;
     font-weight: bold;
-    line-height: 140%;
+    line-height: 120%;
 }
 
 .fs-heading-2,
 h2 {
     font-size: 1.5rem;
     font-weight: bold;
+    line-height: 120%;
 }
 
 .fs-body,
 p {
     font-size: 1.125rem;
     font-weight: light;
-    line-height: 150%;
+    line-height: 140%;
 }
 
 /* Medium screens */
@@ -235,20 +238,17 @@ p {
 
     .fs-heading-1,
     h1 {
-        font-size: 3.0rem;
-        font-weight: medium;
-        line-height: 150%;
+        font-size: 2.25rem;
     }
 
     .fs-heading-2,
     h2 {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
     }
 
     .fs-body,
     p {
         font-size: 1.25rem;
-        line-height: 150%;
     }
 }
 
@@ -257,26 +257,27 @@ p {
 
     .fs-heading-1,
     h1 {
-        font-size: 4rem;
-        font-weight: bold;
-        line-height: 130%;
+        font-size: 2.5rem;
     }
 
     .fs-heading-2,
     h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .fs-body,
     p {
-        font-size: 1.5rem;
-        line-height: 160%;
+        font-size: 1.25rem;
     }
 }
 
 
 .clr-white {
     color: var(--clr-white);
+}
+
+.mt-16 {
+    margin-top: 1rem;
 }
 
 .divider {
@@ -304,7 +305,7 @@ body {
 .staging {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5em;
     align-items: flex-start;
     margin-top: clamp(-25%, -5vw, -10%);
 }
@@ -357,6 +358,12 @@ body {
     -webkit-animation-delay: 2.2s;
     animation-delay: 2.2s;
 }
+
+/* Title text container */
+.title-text-container>*:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
 
 /* Continue for as many children as you have */
 
@@ -427,4 +434,5 @@ body {
 
 .svg-image {
     width: 2em;
+    opacity: 0.6;
 }
